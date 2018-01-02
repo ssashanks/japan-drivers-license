@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { Platform, StyleSheet, View, Button } from 'react-native';
 
-export default class UserView extends React.Component {
+export default class UserTab extends React.Component {
     static navigationOptions = {
       tabBarLabel: 'Me',
       tabBarIcon: ({ tintColor }) => (

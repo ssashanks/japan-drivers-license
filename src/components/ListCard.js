@@ -10,7 +10,8 @@ export default class ListCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name|| "Untitled",
+      id: this.props.id,
+      name: this.props.name || "Untitled",
       progresspercent: this.props.progresspercent || 0,
       progresspoints: this.props.progresspoints || 0,
       progresstarget: this.props.progresstarget || 0,
@@ -19,6 +20,9 @@ export default class ListCard extends React.Component {
   }
   
   componentWillReceiveProps(nextProps) {
+    if(nextProps.id !== this.props.id) { 
+      this.setState({id: this.props.id});
+    }
     if(nextProps.name !== this.props.name) { 
       this.setState({name: this.props.name});
     }
@@ -35,7 +39,7 @@ export default class ListCard extends React.Component {
 
   onCardPress(e) {
     if(this.props.onClick) {
-      this.props.onClick("Card");
+      this.props.onClick(this.state.id);
     }
   }
 
@@ -50,7 +54,7 @@ export default class ListCard extends React.Component {
             </View>
             <Text style={styles.progressText}> { this.state.progresspoints + " of " + this.state.progresstarget + " signs completed" } </Text>
             <View style={styles.progressBarContainer}>
-              <Progress.Bar progress={(this.state.progresspercent%100) * 0.01} width={null} height={15} unfilledColor="#D3D3D3" borderColor="#FFFF" color="#4CAF50" />
+              <Progress.Bar progress={(this.state.progresspercent < 0 ? 0: this.state.progresspercent > 100? 100: this.state.progresspercent) * 0.01} width={null} height={15} unfilledColor="#D3D3D3" borderColor="#FFFF" color="#4CAF50" />
             </View>
           </View>
         </Card>

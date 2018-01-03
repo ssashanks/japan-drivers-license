@@ -75,6 +75,7 @@ const MainTabNavigator = TabNavigator({
     tabBarPosition: 'bottom',
     tabBarComponent: TabBarBottom,
     backBehavior: 'none',
+    lazy: true,
     tabBarOptions: {
       labelStyle: {
         fontSize: 11,

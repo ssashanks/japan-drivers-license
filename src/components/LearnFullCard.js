@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, View, Button } from 'react-native';
 
-export default class FullCard extends React.Component {
+export default class LearnFullCard extends React.Component {
     static navigationOptions = {
         title: "Question 1",
     };

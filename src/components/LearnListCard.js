@@ -5,7 +5,7 @@ import * as Progress from 'react-native-progress';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
-export default class ListCard extends React.Component {
+export default class LearnListCard extends React.Component {
 
   constructor(props) {
     super(props);

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, FlatList } from 'react-native';
-import ListCard from './ListCard';
+import { Platform, StyleSheet, FlatList, Button, View } from 'react-native';
+//import TipListCard from './TipListCard';
 
-export default class CardList extends React.Component {
+export default class UserList extends React.Component {
     static navigationOptions = {
-      title: "Learn",
+      title: "Me",
     };
 
     constructor(props) {
@@ -14,7 +14,7 @@ export default class CardList extends React.Component {
 
     handleCardClick(param) {
       alert(param);
-      this.props.navigation.navigate("Card");
+      //this.props.navigation.navigate("TipFullCard");
     }
 
 
@@ -52,20 +52,18 @@ export default class CardList extends React.Component {
       ];
 
       return (
-        <FlatList
-          data={testCards}
-          renderItem={({item}) => <ListCard onClick={item.click} id={item.id} name={item.name} progresspercent={item.progresspercent} progresspoints={item.progresspoints} progresstarget={item.progresstarget} />}
-          keyExtractor={this._keyExtractor}
-        />
+        <View>
+          <Button title="User page goes here" onPress={()=> {alert("test")}}></Button>
+        </View>
+        // <FlatList
+        //   data={testCards}
+        //   renderItem={({item}) => <TipListCard onClick={item.click} id={item.id} name={item.name} progresspercent={item.progresspercent} progresspoints={item.progresspoints} progresstarget={item.progresstarget} />}
+        //   keyExtractor={this._keyExtractor}
+        // />
       );
     }
 }
 
 const styles = StyleSheet.create({
-    ListContainer: {
-        flex: 1,
-    },
-    Card: {
-      backgroundColor: '#000',
-    }
+    
 });

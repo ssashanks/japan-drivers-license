@@ -5,9 +5,9 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { TabNavigator } from 'react-navigation';
 import { TabBarBottom } from 'react-navigation';
 
-import LearnTabNavigator from './LearnTabNavigator'
-import DriveTabNavigator from './DriveTabNavigator'
-import UserTabNavigator from './UserTabNavigator'
+import LearnTabNavigator from './LearnTabNavigator';
+import TipTabNavigator from './TipTabNavigator';
+import UserTabNavigator from './UserTabNavigator';
 
 class LearnTab extends React.Component {
     static navigationOptions = {
@@ -27,52 +27,63 @@ class LearnTab extends React.Component {
 }
 
 
-// class DriveTab extends React.Component {
-//     static navigationOptions = {
-//       tabBarLabel: 'Driving Tips',
-//       tabBarIcon: ({ tintColor }) => (
-//         <MaterialIcon name="drive-eta" size={25} color={tintColor}/>
-//       ),
-//     };
+class TipTab extends React.Component {
+    static navigationOptions = {
+      tabBarLabel: 'Driving Tips',
+      tabBarIcon: ({ tintColor }) => (
+        <MaterialIcon name="drive-eta" size={25} color={tintColor}/>
+      ),
+    };
   
-//     render() {
-//       return (
-//         <DriveTabNavigator/>
-//       );
-//     }
-// }
+    render() {
+      return (
+        <TipTabNavigator/>
+      );
+    }
+}
 
-// class UserTab extends React.Component {
-//     static navigationOptions = {
-//       tabBarLabel: 'Me',
-//       tabBarIcon: ({ tintColor }) => (
-//         <MaterialIcon name="person" size={25} color={tintColor}/>
-//       ),
-//     };
+class UserTab extends React.Component {
+    static navigationOptions = {
+      tabBarLabel: 'Me',
+      tabBarIcon: ({ tintColor }) => (
+        <MaterialIcon name="person" size={25} color={tintColor}/>
+      ),
+    };
   
-//     render() {
-//       return (
-//         <UserTabNavigator/>
-//       );
-//     }
-// }
+    render() {
+      return (
+        <UserTabNavigator/>
+      );
+    }
+}
 
 const MainTabNavigator = TabNavigator({
-  LearnTab: {
-    screen: LearnTab,
+
+    LearnTab: {
+      screen: LearnTab,
+    },
+    TipTab: {
+      screen: TipTab,
+    },
+    UserTab: {
+      screen: UserTab,
+    }
+  }, {
+    labelStyle: {
+    fontSize: 10,
   },
-//   DriveTab: {
-//     screen: DriveTab,
-//   },
-//   UserTab: {
-//     screen: UserTab,
-//   }
-}, {
-  tabBarPosition: 'bottom',
-  tabBarComponent: TabBarBottom,
-  // swipeEnabled: false,
-  // animationEnabled: false,
-   backBehavior: 'none',
-});
+    tabBarPosition: 'bottom',
+    tabBarComponent: TabBarBottom,
+    backBehavior: 'none',
+    tabBarOptions: {
+      labelStyle: {
+        fontSize: 11,
+      },
+      activeTintColor: '#673AB7',
+    }  
+    // swipeEnabled: false,
+    // animationEnabled: false,
+    
+  });
 
 export default MainTabNavigator;

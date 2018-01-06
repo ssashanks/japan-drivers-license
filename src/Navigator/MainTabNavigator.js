@@ -8,10 +8,12 @@ import { TabBarBottom } from 'react-navigation';
 import LearnTabNavigator from './LearnTabNavigator';
 import TipTabNavigator from './TipTabNavigator';
 import UserTabNavigator from './UserTabNavigator';
+import { strings } from '../resources/Strings';
+import { color } from '../styles/CommonStyles';
 
 class LearnTab extends React.Component {
     static navigationOptions = {
-      tabBarLabel: 'Learn',
+      tabBarLabel: strings.learn,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="question-answer" size={25} color={tintColor}/>
       ),
@@ -29,7 +31,7 @@ class LearnTab extends React.Component {
 
 class TipTab extends React.Component {
     static navigationOptions = {
-      tabBarLabel: 'Driving Tips',
+      tabBarLabel: strings.tips,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="drive-eta" size={25} color={tintColor}/>
       ),
@@ -44,7 +46,7 @@ class TipTab extends React.Component {
 
 class UserTab extends React.Component {
     static navigationOptions = {
-      tabBarLabel: 'Me',
+      tabBarLabel: strings.me,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="person" size={25} color={tintColor}/>
       ),
@@ -75,12 +77,12 @@ const MainTabNavigator = TabNavigator({
     tabBarPosition: 'bottom',
     tabBarComponent: TabBarBottom,
     backBehavior: 'none',
-    lazy: true,
+    //lazy: true,
     tabBarOptions: {
       labelStyle: {
         fontSize: 11,
       },
-      activeTintColor: '#673AB7',
+      activeTintColor: color.darkblue,
     }  
     // swipeEnabled: false,
     // animationEnabled: false,

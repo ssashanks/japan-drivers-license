@@ -10,9 +10,6 @@ const UserTabNavigator = StackNavigator({
     UserList: {
         screen: UserList,
     },
-    // TipFullCard: {
-    //     screen: TipFullCard,
-    // },
 });
 
 export default UserTabNavigator;

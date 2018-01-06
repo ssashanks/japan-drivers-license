@@ -3,7 +3,9 @@ import { Platform, StyleSheet, View, TouchableWithoutFeedback } from 'react-nati
 import { Card, ListItem, Text } from 'react-native-elements';
 import * as Progress from 'react-native-progress';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { color } from '../styles/CommonStyles';
+import { strings } from '../resources/Strings';
 
 export default class LearnListCard extends React.Component {
 
@@ -12,11 +14,19 @@ export default class LearnListCard extends React.Component {
     this.state = {
       id: this.props.id,
       name: this.props.name || "Untitled",
+      progresspercent: 0,
+      progresspoints: 0,
+      progresstarget: 0,
+    };
+    this.onCardPress = this.onCardPress.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
       progresspercent: this.props.progresspercent || 0,
       progresspoints: this.props.progresspoints || 0,
       progresstarget: this.props.progresstarget || 0,
-    };
-    this.onCardPress = this.onCardPress.bind(this);
+    });
   }
   
   componentWillReceiveProps(nextProps) {
@@ -52,9 +62,15 @@ export default class LearnListCard extends React.Component {
               <Text style={styles.cardTitle}> { this.state.name.toUpperCase() } </Text>
               <MaterialIcon name="check-circle" size={22} color="#4CAF50" style={styles.completedIcon}/>
             </View>
-            <Text style={styles.progressText}> { this.state.progresspoints + " of " + this.state.progresstarget + " signs completed" } </Text>
+            <Text style={styles.progressText}> { strings.learnprogresstext.formatUnicorn(this.state.progresspoints, this.state.progresstarget) } </Text>
             <View style={styles.progressBarContainer}>
-              <Progress.Bar progress={(this.state.progresspercent < 0 ? 0: this.state.progresspercent > 100? 100: this.state.progresspercent) * 0.01} width={null} height={15} unfilledColor="#D3D3D3" borderColor="#FFFF" color="#4CAF50" />
+              <Progress.Bar 
+                progress={(this.state.progresspercent < 0 ? 0: this.state.progresspercent > 100? 100: this.state.progresspercent) * 0.01} 
+                width={null}
+                height={15}
+                unfilledColor={color.gray}
+                borderColor={color.white}
+                color={color.green} />
             </View>
           </View>
         </Card>

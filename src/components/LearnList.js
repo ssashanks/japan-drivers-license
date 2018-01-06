@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, FlatList } from 'react-native';
+import { Platform, FlatList } from 'react-native';
 import LearnListCard from './LearnListCard';
+import { strings } from '../resources/Strings';
 
 export default class LearnList extends React.Component {
     static navigationOptions = {
-      title: "Learn",
+      title: strings.learn,
     };
 
     constructor(props) {
@@ -54,13 +55,15 @@ export default class LearnList extends React.Component {
       return (
         <FlatList
           data={testCards}
-          renderItem={({item}) => <LearnListCard onClick={item.click} id={item.id} name={item.name} progresspercent={item.progresspercent} progresspoints={item.progresspoints} progresstarget={item.progresstarget} />}
           keyExtractor={this._keyExtractor}
+          renderItem={({item}) => <LearnListCard 
+              onClick={item.click}
+              id={item.id}
+              name={item.name}
+              progresspercent={item.progresspercent}
+              progresspoints={item.progresspoints}
+              progresstarget={item.progresstarget} />}
         />
       );
     }
 }
-
-const styles = StyleSheet.create({
-    
-});

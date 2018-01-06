@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MainTabNavigator from './src/Navigator/MainTabNavigator'
+import MainTabNavigator from './src/navigator/MainTabNavigator'
 
 export default class App extends React.Component {
   render() {

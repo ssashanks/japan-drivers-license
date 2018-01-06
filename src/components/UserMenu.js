@@ -31,10 +31,32 @@ export default class UserMenu extends React.Component {
     }
   
     _renderModalContent(type) {
-        if(type == 2) {
+        if(type === 1) {
             return (
-            <View style={us.modalContent}>
-                <View style={cs.flex4}>
+            <View style={us.modal}>
+                <View style={us.modalContent}>
+                    <View style={us.modalMsg}>
+                        <Text style={us.modalText}>{strings.clearprogressconfirm}</Text>
+                    </View>
+                </View>
+                <View style={us.modalFooter}>
+                    <TouchableWithoutFeedback onPress={() => { /* define delete here */}}>
+                        <View style={us.modalHalfRed}>
+                            <Text style={us.modalButtonText}>{strings.delete}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => this.setState({ visibleModal: null })}>
+                        <View style={us.modalHalfBlue}>
+                            <Text style={us.modalButtonText}>{strings.cancel}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </View>
+            </View>
+            );
+        } else if(type === 2) {
+            return (
+            <View style={[us.modal, {height: 265}]}>
+                <View style={[us.modalContent, {height: 215}]}>
                     <View style={[cs.flex1,us.devImgContainer]}>
                         <Image style={us.devImg} source={require('../resources/images/dev.jpg')} />
                         <Text style={us.devName}> {strings.devname} </Text>
@@ -44,24 +66,24 @@ export default class UserMenu extends React.Component {
                         <Text style={us.devBio}>{strings.devBio}</Text>
                     </View>
                 </View>
-                <TouchableWithoutFeedback 
-                    style={cs.flex1} 
-                    onPress={() => this.setState({ visibleModal: null })}>
-                    <View style={us.modalButton}>
-                        <Text style={us.aboutModalClose}>{strings.closeuppercase}</Text>
-                    </View>
-                </TouchableWithoutFeedback>
+                <View style={us.modalFooter}>
+                    <TouchableWithoutFeedback onPress={() => this.setState({ visibleModal: null })}>
+                        <View style={us.modalFullBlue}>
+                            <Text style={us.modalButtonText}>{strings.closeuppercase}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </View>
             </View>
             );
         }
     }
 
     _renderClearModal() {
-        return  <Modal isVisible={this.state.visibleModal == 2} children={this._renderModalContent(1)}/>
+        return  <Modal isVisible={this.state.visibleModal === 1} children={this._renderModalContent(1)}/>
     }
-    
+
     _renderAboutModal() {
-        return  <Modal isVisible={this.state.visibleModal == 2} children={this._renderModalContent(2)}/>
+        return  <Modal isVisible={this.state.visibleModal === 2} children={this._renderModalContent(2)}/>
     }
       
     _renderMenuList() {

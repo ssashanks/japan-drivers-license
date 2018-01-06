@@ -9,9 +9,12 @@ export var strings = {
     aboutus: "About us",
     appversion: "App version",
     closeuppercase: "CLOSE",
+    delete: "DELETE",
+    cancel: "CANCEL",
     devname: "Shashank Swaminathan",
     devBioHeading: "Another frustrated expat",
     devBio: "Speak 5-ish languages and love making softwares that help solve everyday problems.\nAnd Space!, I also love Space!",
+    clearprogressconfirm: "All Progress will be permanently lost.\n Are you sure you want to clear your progress?",
 }
 
 /**

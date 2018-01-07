@@ -24,33 +24,34 @@ export default class LearnList extends React.Component {
     render() {
       var testCards = [
         { 
-          id: "1", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "1", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: false,
         },
         { 
-          id: "2", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "2", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "3", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "3", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "4", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "4", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "5", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "5", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "6", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "6", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "7", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "7", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "8", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "8", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
         { 
-          id: "9", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick,
+          id: "9", name: 'abcde', progresspercent: 80, progresspoints: 80, progresstarget: 80, click: this.handleCardClick, completed: true,
         },
       ];
+
 
       return (
         <FlatList
@@ -62,7 +63,8 @@ export default class LearnList extends React.Component {
               name={item.name}
               progresspercent={item.progresspercent}
               progresspoints={item.progresspoints}
-              progresstarget={item.progresstarget} />}
+              progresstarget={item.progresstarget}
+              completed={item.completed} />}
         />
       );
     }

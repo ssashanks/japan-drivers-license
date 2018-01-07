@@ -6,6 +6,7 @@ import * as Progress from 'react-native-progress';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { color } from '../styles/CommonStyles';
 import { strings } from '../resources/Strings';
+import ts from '../styles/LearnStyles'
 
 export default class TipListCard extends React.Component {
 
@@ -57,21 +58,21 @@ export default class TipListCard extends React.Component {
           name="check-circle"
           size={22}
           color={color.green}
-          style={styles.completedIcon}/>);
+          style={ts.listCardCompletedIcon}/>);
     }
   }
 
   render() {
     return (
       <TouchableWithoutFeedback onPress={this._onCardPress}>
-        <Card containerStyle={{ justifyContent: 'center'}}>
+        <Card containerStyle={ts.listCardContainer}>
           <View>
-            <View style={styles.nameRow}>
-              <Text style={styles.cardTitle}> { this.state.name.toUpperCase() } </Text>
+            <View style={ts.listCardNameRow}>
+              <Text style={ts.listCardTitle}> { this.state.name.toUpperCase() } </Text>
               {this._renderCompletedIcon()}
             </View>
-            <Text style={styles.progressText}> { strings.tipprogresstext.formatUnicorn(this.state.progresspoints, this.state.progresstarget) } </Text>
-            <View style={styles.progressBarContainer}>
+            <Text style={ts.listCardProgressText}> { strings.tipprogresstext.formatUnicorn(this.state.progresspoints, this.state.progresstarget) } </Text>
+            <View style={ts.listCardProgressBarContainer}>
               <Progress.Bar 
                 progress={(this.state.progresspercent < 0 ? 0: this.state.progresspercent > 100? 100: this.state.progresspercent) * 0.01} 
                 width={null}
@@ -86,24 +87,3 @@ export default class TipListCard extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  nameRow: {
-    flexDirection: 'row'
-  },
-  cardTitle: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    paddingBottom: 15
-  },
-  completedIcon: {
-    paddingTop: 4
-  },
-  progressText: {
-    fontSize: 15,
-    paddingBottom: 10
-  },
-  progressBarContainer: {
-    paddingBottom: 20
-  },
-});

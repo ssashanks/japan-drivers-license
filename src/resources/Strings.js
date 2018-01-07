@@ -12,8 +12,8 @@ export var strings = {
     delete: "DELETE",
     cancel: "CANCEL",
     devname: "Shashank Swaminathan",
-    devBioHeading: "Another frustrated expat",
-    devBio: "Speak 5-ish languages and love making softwares that help solve everyday problems.\nAnd Space!, I also love Space!",
+    devBioHeading: "Took me three attempts",
+    devBio: "Just another expat living in Yokohama. I am passionate about writing sofwares to solve everyday problems. And Space! I also like Space!",
     clearprogressconfirm: "All Progress will be permanently lost.\n Are you sure you want to clear your progress?",
 }
 

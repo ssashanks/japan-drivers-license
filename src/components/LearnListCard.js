@@ -6,6 +6,7 @@ import * as Progress from 'react-native-progress';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { color } from '../styles/CommonStyles';
 import { strings } from '../resources/Strings';
+import ls from '../styles/LearnStyles'
 
 export default class LearnListCard extends React.Component {
 
@@ -14,11 +15,13 @@ export default class LearnListCard extends React.Component {
     this.state = {
       id: this.props.id,
       name: this.props.name || "Untitled",
-      progresspercent: 0,
-      progresspoints: 0,
-      progresstarget: 0,
+      progresspercent: this.props.progresspercent || 0,
+      progresspoints: this.props.progresspoints || 0,
+      progresstarget: this.props.progresstarget || 0,
+      completed: this.props.completed,
     };
-    this.onCardPress = this.onCardPress.bind(this);
+    this._onCardPress = this._onCardPress.bind(this);
+    this._renderCompletedIcon = this._renderCompletedIcon.bind(this);
   }
 
   componentDidMount() {
@@ -47,23 +50,34 @@ export default class LearnListCard extends React.Component {
     }
   }
 
-  onCardPress(e) {
+  _onCardPress(e) {
     if(this.props.onClick) {
       this.props.onClick(this.state.id);
     }
   }
 
+  _renderCompletedIcon() {
+    if(this.state.completed) {
+      return (
+        <MaterialIcon 
+          name="check-circle"
+          size={22}
+          color={color.green}
+          style={ls.listCardCompletedIcon}/>);
+    }
+  }
+
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.onCardPress}>
-        <Card containerStyle={{ justifyContent: 'center'}}>
+      <TouchableWithoutFeedback onPress={this._onCardPress}>
+        <Card containerStyle={ls.listCardContainer}>
           <View>
-            <View style={styles.nameRow}>
-              <Text style={styles.cardTitle}> { this.state.name.toUpperCase() } </Text>
-              <MaterialIcon name="check-circle" size={22} color="#4CAF50" style={styles.completedIcon}/>
+            <View style={ls.listCardNameRow}>
+              <Text style={ls.listCardTitle}> { this.state.name.toUpperCase() } </Text>
+              {this._renderCompletedIcon()}
             </View>
-            <Text style={styles.progressText}> { strings.learnprogresstext.formatUnicorn(this.state.progresspoints, this.state.progresstarget) } </Text>
-            <View style={styles.progressBarContainer}>
+            <Text style={ls.listCardProgressText}> { strings.learnprogresstext.formatUnicorn(this.state.progresspoints, this.state.progresstarget) } </Text>
+            <View style={ls.listCardProgressBarContainer}>
               <Progress.Bar 
                 progress={(this.state.progresspercent < 0 ? 0: this.state.progresspercent > 100? 100: this.state.progresspercent) * 0.01} 
                 width={null}
@@ -78,24 +92,3 @@ export default class LearnListCard extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  nameRow: {
-    flexDirection: 'row'
-  },
-  cardTitle: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    paddingBottom: 15
-  },
-  completedIcon: {
-    paddingTop: 4
-  },
-  progressText: {
-    fontSize: 15,
-    paddingBottom: 10
-  },
-  progressBarContainer: {
-    paddingBottom: 20
-  },
-});

@@ -13,9 +13,9 @@ export default class LearnList extends React.Component {
       this.handleCardClick = this.handleCardClick.bind(this);
     }
 
-    handleCardClick(param) {
-      alert(param);
-      this.props.navigation.navigate("LearnFullCard");
+    handleCardClick(id) {
+      //alert(id);
+      this.props.navigation.navigate("LearnFullCard", { id: id });
     }
 
 

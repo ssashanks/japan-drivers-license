@@ -5,7 +5,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { TabNavigator } from 'react-navigation';
 import { TabBarBottom } from 'react-navigation';
 
-import LearnTabNavigator from './LearnTabNavigator';
+//import LearnTabNavigator from './LearnTabNavigator';
+import LearnList from '../components/LearnList';
 import TipTabNavigator from './TipTabNavigator';
 import UserTabNavigator from './UserTabNavigator';
 import { strings } from '../resources/Strings';
@@ -22,7 +23,8 @@ class LearnTab extends React.Component {
     render() {
       return (
         <View style={{ flex: 1}}>
-            <LearnTabNavigator/>
+          <LearnList navigation={this.props.navigation}/>
+            {/* <LearnTabNavigator/> */}
         </View>
       );
     }

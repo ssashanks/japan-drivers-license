@@ -12,7 +12,7 @@ export default class LearnList extends React.Component {
 
     handleCardClick(id) {
       //alert(id);
-      this.props.navigation.navigate("LearnFullCard", { id: id });
+      this.props.navigation.navigate("LearnSwipeContainer", { id: id });
     }
 
 

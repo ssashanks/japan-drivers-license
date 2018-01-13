@@ -4,8 +4,6 @@ import { strings } from '../resources/Strings';
 import { Card, ListItem, Text, Button } from 'react-native-elements';
 import ls from '../styles/LearnStyles';
 
-// import PropTypes from 'prop-types';
-
 export default class LearnFullCard extends React.Component {
 
     // static propTypes = {
@@ -66,17 +64,6 @@ export default class LearnFullCard extends React.Component {
                 title='VIEW NOW' 
                 onPress={() => {}} />
           </Card>
-           {/* <Card containerStyle={ls.listCardContainer}>
-            <View>
-              <View style={ls.listCardNameRow}>
-                <Text style={ls.listCardTitle}> { "this.state.name".toUpperCase() } </Text>
-              </View>
-            </View>
-          </Card> */}
-
-          {/* <Button
-          onPress={() => this.props.navigation.goBack()}
-          title="Go back"/> */}
         </View>
       );
     }

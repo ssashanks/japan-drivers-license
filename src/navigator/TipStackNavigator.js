@@ -6,7 +6,7 @@ import TipList from '../components/TipList';
 import TipFullCard from '../components/TipFullCard';
 
 
-const TipTabNavigator = StackNavigator({
+const TipStackNavigator = StackNavigator({
     TipList: {
         screen: TipList,
     },
@@ -15,4 +15,4 @@ const TipTabNavigator = StackNavigator({
     },
 });
 
-export default TipTabNavigator;
+export default TipStackNavigator;

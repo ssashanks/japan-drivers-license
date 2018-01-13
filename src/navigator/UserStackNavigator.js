@@ -6,10 +6,10 @@ import UserList from '../components/UserList';
 //import TipFullCard from '../components/TipFullCard';
 
 
-const UserTabNavigator = StackNavigator({
+const UserStackNavigator = StackNavigator({
     UserList: {
         screen: UserList,
     },
 });
 
-export default UserTabNavigator;
+export default UserStackNavigator;

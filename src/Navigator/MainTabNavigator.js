@@ -5,9 +5,9 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { TabNavigator } from 'react-navigation';
 import { TabBarBottom } from 'react-navigation';
 
-import LearnTabNavigator from './LearnTabNavigator';
-import TipTabNavigator from './TipTabNavigator';
-import UserTabNavigator from './UserTabNavigator';
+import LearnStackNavigator from './LearnStackNavigator';
+import TipStackNavigator from './TipStackNavigator';
+import UserStackNavigator from './UserStackNavigator';
 import { strings } from '../resources/Strings';
 import { color } from '../styles/CommonStyles';
 
@@ -22,7 +22,7 @@ class LearnTab extends React.Component {
     render() {
       return (
         <View style={{ flex: 1}}>
-            <LearnTabNavigator/>
+            <LearnStackNavigator/>
         </View>
       );
     }
@@ -39,7 +39,7 @@ class TipTab extends React.Component {
   
     render() {
       return (
-        <TipTabNavigator/>
+        <TipStackNavigator/>
       );
     }
 }
@@ -54,7 +54,7 @@ class UserTab extends React.Component {
   
     render() {
       return (
-        <UserTabNavigator/>
+        <UserStackNavigator/>
       );
     }
 }

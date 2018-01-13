@@ -4,9 +4,9 @@ import {  StyleSheet, View, Button, Text } from 'react-native';
 
 import LearnList from '../components/LearnList';
 import LearnFullCard from '../components/LearnFullCard';
+import { strings } from '../resources/Strings';
 
-
-const LearnTabNavigator = StackNavigator({
+const LearnStackNavigator = StackNavigator({
     LearnList: {
         screen: LearnList,
     },
@@ -15,4 +15,4 @@ const LearnTabNavigator = StackNavigator({
     },
 });
 
-export default LearnTabNavigator;
+export default LearnStackNavigator;

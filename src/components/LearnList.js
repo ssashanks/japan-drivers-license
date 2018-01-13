@@ -4,10 +4,7 @@ import LearnListCard from './LearnListCard';
 import { strings } from '../resources/Strings';
 
 export default class LearnList extends React.Component {
-    static navigationOptions = {
-      title: strings.learn,
-    };
-
+   
     constructor(props) {
       super(props);
       this.handleCardClick = this.handleCardClick.bind(this);

@@ -5,15 +5,17 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import { TabNavigator } from 'react-navigation';
 import { TabBarBottom } from 'react-navigation';
 
-import LearnStackNavigator from './LearnStackNavigator';
-import TipStackNavigator from './TipStackNavigator';
-import UserStackNavigator from './UserStackNavigator';
+import LearnList from '../components/LearnList';
+import TipList from '../components/TipList';
+import UserList from '../components/UserList';
 import { strings } from '../resources/Strings';
 import { color } from '../styles/CommonStyles';
 
 class LearnTab extends React.Component {
     static navigationOptions = {
       tabBarLabel: strings.learn,
+      title: strings.learn,
+      //header: null,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="question-answer" size={25} color={tintColor}/>
       ),
@@ -22,7 +24,7 @@ class LearnTab extends React.Component {
     render() {
       return (
         <View style={{ flex: 1}}>
-            <LearnStackNavigator/>
+            <LearnList navigation={this.props.navigation}/>
         </View>
       );
     }
@@ -32,6 +34,8 @@ class LearnTab extends React.Component {
 class TipTab extends React.Component {
     static navigationOptions = {
       tabBarLabel: strings.tips,
+      title: strings.tips,
+      //header: null,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="drive-eta" size={25} color={tintColor}/>
       ),
@@ -39,7 +43,7 @@ class TipTab extends React.Component {
   
     render() {
       return (
-        <TipStackNavigator/>
+        <TipList navigation={this.props.navigation}/>
       );
     }
 }
@@ -47,6 +51,8 @@ class TipTab extends React.Component {
 class UserTab extends React.Component {
     static navigationOptions = {
       tabBarLabel: strings.me,
+      title: strings.me,
+      //header: null,
       tabBarIcon: ({ tintColor }) => (
         <MaterialIcon name="person" size={25} color={tintColor}/>
       ),
@@ -54,7 +60,7 @@ class UserTab extends React.Component {
   
     render() {
       return (
-        <UserStackNavigator/>
+        <UserList/>
       );
     }
 }

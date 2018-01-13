@@ -4,9 +4,6 @@ import TipListCard from './TipListCard';
 import { strings } from '../resources/Strings';
 
 export default class TipList extends React.Component {
-    static navigationOptions = {
-      title: strings.tips,
-    };
 
     constructor(props) {
       super(props);

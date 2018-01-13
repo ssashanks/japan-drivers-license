@@ -9,9 +9,7 @@ import { strings } from '../resources/Strings';
 //import TipListCard from './TipListCard';
 
 export default class UserList extends React.Component {
-    static navigationOptions = {
-      title: strings.me,
-    };
+
 
     constructor(props) {
       super(props);
